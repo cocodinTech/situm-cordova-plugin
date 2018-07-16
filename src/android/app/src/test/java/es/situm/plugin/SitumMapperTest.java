@@ -552,6 +552,7 @@ public class SitumMapperTest {
         Assert.assertEquals(defaultCoordinate.getDouble(LATITUDE), coordinate.getDouble(LATITUDE), 0);
         Assert.assertEquals(Double.class, coordinate.get(LONGITUDE).getClass());
         Assert.assertEquals(defaultCoordinate.getDouble(LONGITUDE), coordinate.getDouble(LONGITUDE), 0);
+        Assert.assertNotEquals(defaultCoordinate.getDouble(LONGITUDE), coordinate.getDouble(LONGITUDE), 0);
     }
 
     private void testDimensions(JSONObject dimensions, JSONObject defaultDimensions) throws JSONException {
