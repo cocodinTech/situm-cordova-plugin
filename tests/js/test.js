@@ -75,7 +75,7 @@ describe('Test fetchIndoorPOIsFromBuilding ->', () => {
     expect(indoorPois instanceof Array).to.be(true);
   });
   it('Check indoorPOI', () => {
-    expect(indoorPoi = indoorPois[0]);
+    expect(indoorPoi = indoorPois[17]);
     expect(typeof indoorPoi).to.be('object');
     expect(typeof indoorPoi.identifier).to.be('string');
     expect(typeof indoorPoi.buildingIdentifier).to.be('string');
