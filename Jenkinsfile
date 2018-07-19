@@ -23,7 +23,8 @@ node('vm1-docker') {
 
     stage('Checkout SCM') {
         // checkout scm
-        git url: 'https://github.com/situmtech/situm-cordova-plugin.git'
+        sh "git clone https://github.com/situmtech/situm-cordova-plugin.git"
+        sh "git checkout jenkins-test"
     }
 
     stage('Test JS') {
