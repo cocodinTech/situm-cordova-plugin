@@ -22,10 +22,10 @@ node('androidci') {
 node('vm1-docker') {
 
     stage('Checkout SCM') {
-        // checkout scm
-        sh "rm -rf situm-cordova-plugin"
-        sh "git clone https://github.com/situmtech/situm-cordova-plugin.git"
-        sh "git checkout jenkins-test"
+        checkout scm
+        // sh "rm -rf situm-cordova-plugin"
+        // sh "git clone https://github.com/situmtech/situm-cordova-plugin.git"
+        // sh "git checkout jenkins-test"
     }
 
     stage('Test JS') {
@@ -41,7 +41,8 @@ node('vm1-docker') {
       def kubectl = docker.image('node:10.6-slim')
       kubectl.pull()
       kubectl.inside("-u 0") {
-          sh "cat package.json"
+          //sh "cat package.json"
+          sh "cp ./docs/conf.json ./node_modules/jsdoc/"
           sh "npm run jsdoc"
       }
     }
