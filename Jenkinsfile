@@ -41,6 +41,7 @@ node('vm1-docker') {
       def kubectl = docker.image('node:10.6-slim')
       kubectl.pull()
       kubectl.inside("-u 0") {
+          sh "cat package.json"
           sh "npm run jsdoc"
       }
     }
