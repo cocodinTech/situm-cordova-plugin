@@ -22,7 +22,8 @@ node('androidci') {
 node('vm1-docker') {
 
     stage('Checkout SCM') {
-        checkout scm
+        // checkout scm
+        git url: 'https://github.com/situmtech/situm-cordova-plugin.git'
     }
 
     stage('Test JS') {
@@ -38,7 +39,7 @@ node('vm1-docker') {
       def kubectl = docker.image('node:10.6-slim')
       kubectl.pull()
       kubectl.inside("-u 0") {
-          sh "ls"
+          sh "ls -la ."
           sh "npm run jsdoc"
       }
     }
