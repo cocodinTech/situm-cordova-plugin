@@ -40,7 +40,7 @@ node('vm1-docker') {
       def kubectl = docker.image('node:10.6-slim')
       kubectl.pull()
       kubectl.inside("-u 0") {
-          sh "ls -la ."
+          sh "ls -la ./www/android"
           sh "npm run jsdoc"
       }
     }
